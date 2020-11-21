@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  Platform,
-  TouchableNativeFeedback,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 const AlbumView = ({item}) => {
   const onPress = () => {
@@ -26,15 +19,7 @@ const AlbumView = ({item}) => {
     </View>
   );
 
-  return Platform.OS === 'android' ? (
-    <TouchableNativeFeedback
-      onPress={onPress}
-      background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .22)', true)}>
-      {renderView()}
-    </TouchableNativeFeedback>
-  ) : (
-    <TouchableOpacity onPress={onPress}>{renderView()}</TouchableOpacity>
-  );
+  return <TouchableOpacity onPress={onPress}>{renderView()}</TouchableOpacity>;
 };
 
 export default AlbumView;

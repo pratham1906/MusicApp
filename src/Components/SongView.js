@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  Platform,
-  TouchableNativeFeedback,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 const SongView = ({item, isPlaying = false, onPlay = () => {}}) => {
   const renderView = () => (
@@ -95,15 +88,7 @@ const SongView = ({item, isPlaying = false, onPlay = () => {}}) => {
     </View>
   );
 
-  return Platform.OS === 'android' ? (
-    <TouchableNativeFeedback
-      onPress={onPlay}
-      background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .22)', true)}>
-      {renderView()}
-    </TouchableNativeFeedback>
-  ) : (
-    <TouchableOpacity onPress={onPlay}>{renderView()}</TouchableOpacity>
-  );
+  return <TouchableOpacity onPress={onPlay}>{renderView()}</TouchableOpacity>;
 };
 
 export default SongView;

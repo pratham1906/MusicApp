@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Image,
-  Platform,
-  TouchableNativeFeedback,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Image, TouchableOpacity} from 'react-native';
 
 const PopularChannelView = ({item}) => {
   const onPress = () => {
@@ -22,15 +16,7 @@ const PopularChannelView = ({item}) => {
     </View>
   );
 
-  return Platform.OS === 'android' ? (
-    <TouchableNativeFeedback
-      onPress={onPress}
-      background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .22)', true)}>
-      {renderView()}
-    </TouchableNativeFeedback>
-  ) : (
-    <TouchableOpacity onPress={onPress}>{renderView()}</TouchableOpacity>
-  );
+  return <TouchableOpacity onPress={onPress}>{renderView()}</TouchableOpacity>;
 };
 
 export default PopularChannelView;

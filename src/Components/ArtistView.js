@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  Platform,
-  TouchableNativeFeedback,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 const ArtistView = ({item}) => {
   const onPress = () => {
@@ -33,7 +26,6 @@ const ArtistView = ({item}) => {
             height: 5,
           },
           shadowOpacity: 0.8,
-          elevation: 5,
         }}>
         <View style={{flex: 1, flexDirection: 'row', margin: 10}}>
           <View style={{flex: 0.8}}>
@@ -58,15 +50,7 @@ const ArtistView = ({item}) => {
     </View>
   );
 
-  return Platform.OS === 'android' ? (
-    <TouchableNativeFeedback
-      onPress={onPress}
-      background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .22)', true)}>
-      {renderView()}
-    </TouchableNativeFeedback>
-  ) : (
-    <TouchableOpacity onPress={onPress}>{renderView()}</TouchableOpacity>
-  );
+  return <TouchableOpacity onPress={onPress}>{renderView()}</TouchableOpacity>;
 };
 
 export default ArtistView;

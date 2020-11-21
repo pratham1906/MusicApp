@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  Platform,
-  TouchableNativeFeedback,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 
 const PopularAlbumView = ({item, navigation}) => {
   const onPress = () => {
@@ -23,7 +16,6 @@ const PopularAlbumView = ({item, navigation}) => {
             height: 5,
           },
           shadowOpacity: 0.8,
-          elevation: 5,
         }}>
         <Image
           style={{
@@ -43,15 +35,7 @@ const PopularAlbumView = ({item, navigation}) => {
     </View>
   );
 
-  return Platform.OS === 'android' ? (
-    <TouchableNativeFeedback
-      onPress={onPress}
-      background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, .22)', true)}>
-      {renderView()}
-    </TouchableNativeFeedback>
-  ) : (
-    <TouchableOpacity onPress={onPress}>{renderView()}</TouchableOpacity>
-  );
+  return <TouchableOpacity onPress={onPress}>{renderView()}</TouchableOpacity>;
 };
 
 export default PopularAlbumView;
